@@ -36,8 +36,8 @@ export default function Home() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <Image
-            src="B&B fondaco di longobardi -001.jpg"
-            alt="Esterno del Fondaco dei Longobardi"
+            src="/images/img1.jpg"
+            alt="Fondaco dei Longobardi"
             fill
             className="object-cover rounded-lg shadow-lg"
           />

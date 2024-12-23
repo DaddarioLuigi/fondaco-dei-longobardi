@@ -4,8 +4,16 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import FloatingContactButton from './components/FloatingContactButton'
 
-const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' })
-const raleway = Raleway({ subsets: ['latin'], variable: '--font-raleway' })
+const playfair = Playfair_Display({ 
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+})
+const raleway = Raleway({ 
+  subsets: ['latin'],
+  variable: '--font-raleway',
+  display: 'swap',
+})
 
 export const metadata = {
   title: 'Fondaco dei Longobardi - Elegante B&B a Trani',
