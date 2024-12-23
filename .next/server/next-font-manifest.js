@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/Users/luigidaddario/Documents/GitHub/fondaco-dei-longobardi/app/layout":["static/media/dcc209c0b1ab30af-s.p.woff2","static/media/9bf67a161a796382-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';
