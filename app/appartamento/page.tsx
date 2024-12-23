@@ -15,9 +15,9 @@ const features = [
 ]
 
 const images = [
-  { src: '/images/B&B 2 -24.jpg', alt: 'Vista della camera da letto' },
+  { src: '/images/B&B 2 -17.jpg', alt: 'Vista della camera da letto' },
   { src: '/images/B&B 2 -17.jpg', alt: 'Dettaglio arredamento' },
-  { src: '/images/B&B 2 -20.jpg', alt: 'Vista del soggiorno' },
+  { src: '/images/B&B 2 -24.jpg', alt: 'Vista del soggiorno' },
   { src: '/images/B&B 2 -08.jpg', alt: 'Angolo relax' },
   { src: '/images/B&B fondaco di longobardi -029.jpg', alt: 'Vista panoramica' },
   { src: '/images/B&B fondaco di longobardi -033.jpg', alt: 'Dettaglio cucina' },
