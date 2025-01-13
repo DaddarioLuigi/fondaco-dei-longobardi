@@ -55,24 +55,84 @@ export default function Appartamento() {
         Il nostro Appartamento
       </motion.h1>
       <div className="grid md:grid-cols-2 gap-8">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <p className="text-lg mb-4">
-          Immerso nella suggestiva cornice del porto di Trani, la casa vacanza il" Fondaco dei Longobardi "è un luogo dove ospitalità e storia si Intrecciano. È collocata al primo piano di un elegante palazzo storico recentemente ristrutturato e' riportato al suo antico splendore . La nostra elegante struttura e' dotata di tutti i comfort, affaccia sullo storico "Fondaco dei  Longobardi "e racconta un passato ricco di cultura e tradizione che unisce design moderno e fascino antico. L'appartamento è dotato di aria condizionata (freddo - caldo), smart TV a schermo piatto, bagno privato con set di cortesia gratis, asciugacapelli e doccia . È coperto in tutti gli ambienti dalla connessione Wi-Fi gratuita.La cucina è comoda e completamente accessoriata dotata di pensili, piano cottura ad induzione, forno, tavolo con sedie, frigorifero , lavastoviglie, teiera , macchina da caffè, lavatrice ,asciugatrice, ferro da stiro, asse da stiro e stendi biancheria. L'ampio soggiorno è dotato di letto singolo, un divano trasformabile in letto e armadi . Un terrazzo arredato che affaccia sul "Fondaco dei Longobardi."  La camera da letto è dotata di  letto matrimoniale confortevole , scrivania e stand qppendiabiti. In tutta la struttura la pulizia viene effettuata con prodotti conformi per il benessere dell'uomo e dell'ambiente. Il nostro desiderio e' farvi vivere la bellezza di Trani girando per le vie e scoprendo il fascino e la cultura mediterranea attraverso i sapori tipici della Puglia, i suoi paesaggi ed il suo mare incantevole.
-          </p>
-          <h2 className="text-2xl font-serif font-semibold mb-4 text-brand-secondary">Caratteristiche principali</h2>
-          <div className="grid grid-cols-2 gap-4">
-            {features.map((feature, index) => (
-              <div key={index} className="flex items-center">
-                <feature.icon className="text-brand-secondary mr-2" />
-                <span>{feature.text}</span>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+      <motion.div
+  initial={{ opacity: 0, x: -20 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.5, delay: 0.2 }}
+>
+  <h2 className="text-2xl font-serif font-bold mb-4 text-brand-primary">
+    Il Fondaco dei Longobardi: eleganza e comfort
+  </h2>
+
+  {/* Introduzione */}
+  <p className="text-lg mb-4">
+    Immerso nella suggestiva cornice del porto di Trani, il "Fondaco dei Longobardi" è una casa vacanza dove ospitalità e storia si intrecciano. Situata al primo piano di un palazzo storico recentemente ristrutturato, la struttura unisce il fascino antico al design moderno.
+  </p>
+
+  {/* Dettagli struttura */}
+  <h3 className="text-xl font-serif font-semibold mb-3 text-brand-secondary">
+    Comfort e dotazioni
+  </h3>
+  <ul className="list-disc pl-6 mb-4">
+    <li>Aria condizionata (caldo/freddo)</li>
+    <li>Smart TV a schermo piatto</li>
+    <li>Bagno privato con set di cortesia, asciugacapelli e doccia</li>
+    <li>Wi-Fi gratuito in tutti gli ambienti</li>
+  </ul>
+
+  {/* Cucina */}
+  <h3 className="text-xl font-serif font-semibold mb-3 text-brand-secondary">
+    Cucina completamente attrezzata
+  </h3>
+  <p className="text-lg mb-4">
+    La cucina è dotata di tutto il necessario per un soggiorno confortevole: piano cottura a induzione, forno, frigorifero, lavastoviglie, macchina da caffè, teiera, lavatrice, asciugatrice, ferro e asse da stiro, stendi biancheria, tavolo e sedie.
+  </p>
+
+  {/* Soggiorno */}
+  <h3 className="text-xl font-serif font-semibold mb-3 text-brand-secondary">
+    Soggiorno spazioso e accogliente
+  </h3>
+  <p className="text-lg mb-4">
+    L'ampio soggiorno è arredato con un letto singolo, un divano trasformabile in letto e armadi. Dalla terrazza arredata si può godere della vista sullo storico "Fondaco dei Longobardi".
+  </p>
+
+  {/* Camera da letto */}
+  <h3 className="text-xl font-serif font-semibold mb-3 text-brand-secondary">
+    Camera da letto confortevole
+  </h3>
+  <p className="text-lg mb-4">
+    La camera matrimoniale offre un letto confortevole, una scrivania e uno stand appendiabiti, garantendo il massimo comfort per gli ospiti.
+  </p>
+
+  {/* Pulizia e benessere */}
+  <h3 className="text-xl font-serif font-semibold mb-3 text-brand-secondary">
+    Pulizia e rispetto per l'ambiente
+  </h3>
+  <p className="text-lg mb-4">
+    La pulizia viene effettuata con prodotti conformi per il benessere dell’uomo e dell’ambiente, per garantire un soggiorno sano e piacevole.
+  </p>
+
+  {/* Esperienza di Trani */}
+  <h3 className="text-xl font-serif font-semibold mb-3 text-brand-secondary">
+    Vivi la bellezza di Trani
+  </h3>
+  <p className="text-lg mb-4">
+    Scoprite il fascino e la cultura mediterranea passeggiando per le vie della città, gustando i sapori tipici della Puglia e ammirando il mare incantevole. Trani vi aspetta con i suoi paesaggi unici e la sua ricca tradizione.
+  </p>
+
+  {/* Caratteristiche principali */}
+  <h2 className="text-2xl font-serif font-semibold mb-4 text-brand-secondary">
+    Caratteristiche principali
+  </h2>
+  <div className="grid grid-cols-2 gap-4">
+    {features.map((feature, index) => (
+      <div key={index} className="flex items-center">
+        <feature.icon className="text-brand-secondary mr-2" />
+        <span>{feature.text}</span>
+      </div>
+    ))}
+  </div>
+</motion.div>
         <motion.div 
           className="relative h-96"
           initial={{ opacity: 0, scale: 0.8 }}
