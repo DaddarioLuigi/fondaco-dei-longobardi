@@ -110,14 +110,18 @@ export default function Appartamento() {
       >
         <h2 className="text-2xl font-serif font-semibold mb-4 text-brand-primary">Dettagli dell'appartamento</h2>
         <ul className="list-disc list-inside space-y-2">
-          <li>Camera da letto spaziosa con letto matrimoniale king-size</li>
-          <li>Soggiorno con divano letto per ospiti aggiuntivi</li>
+          <li>Camera da letto con letto matrimoniale king-size</li>
+          <li>Soggiorno con due letti per ospiti aggiuntivi</li>
           <li>Cucina completamente attrezzata con elettrodomestici moderni</li>
           <li>Bagno di lusso con doccia a pioggia e set di cortesia</li>
-          <li>Vista panoramica sul porto di Trani</li>
-          <li>Aria condizionata e riscaldamento autonomo</li>
-          <li>Cassaforte per oggetti di valore</li>
-          <li>Pulizie giornaliere incluse nel prezzo</li>
+          <li>Vista panoramica sul Fondaco Dei Longobard</li>
+          <li>Colazione a domicilio (a pagamento) in collaborazione con "bar ai Portici"</li>
+          <li>Aperitivo a domicilio (a pagamento) in collaborazione con "bar ai Portici"</li>
+          <li>Servizio navetta da e per la stazione (a pagamento)</li>
+          <li>Servizio navetta da e per l'aeroporto (a pagamento)</li>
+          <li>Vino / Champagne (a pagamento)</li>
+          <li>Servizio pulizia giornaliera (a pagamento )</li>
+          <li>Cambio biancheria (letto - asciugamani) a richiesta (a pagamento)</li>
         </ul>
       </motion.div>
       <motion.div
