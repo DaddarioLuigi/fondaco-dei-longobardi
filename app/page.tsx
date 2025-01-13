@@ -35,11 +35,12 @@ export default function Home() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <Image
-            src="/images/img1.jpg"
-            alt="Fondaco dei Longobardi"
-            fill
-            className="object-cover rounded-lg shadow-lg"
+          <video
+            src="/videos/video.mp4"
+            className="object-cover rounded-lg shadow-lg w-full h-full"
+            autoPlay
+            muted
+            loop
           />
         </motion.div>
       </div>
