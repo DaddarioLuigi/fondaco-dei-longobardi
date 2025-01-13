@@ -53,15 +53,15 @@ export default function Home() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
-        <h2 className="text-3xl font-serif font-bold mb-4 text-brand-primary">Scopri il Porto di Trani</h2>
+        <h2 className="text-3xl font-serif font-bold mb-4 text-brand-primary">Scopri Trani</h2>
         <p className="text-lg mb-4">
-          Il porto offre un pittoresco scenario con barche ancorate che producono un variopinto tripudio di colori, circondato da ristoranti e locali dove è possibile gustare un pasto con vista mare. La città, conosciuta come la "Perla dell'Adriatico", è famosa per la maestosa cattedrale romanica sul mare e per il "Castello Svevo", voluto da Federico II e considerato uno dei più importanti esempi di architettura sveva in Italia.
+        Le sue rive sono completamente banchinate e offre un pittoresco scenario con barche ancorate che producono un variopinto tripudio di colori, circondato da ristoranti e locali che permettono di gustare un pasto con vista mare ed è anche un luogo di ritrovo per american bar serale . La città è conosciuta come la "Perla dell'adriatico" ed è famosa per la cattedrale romanica che sorge maestosa direttamente sul mare.
         </p>
         <p className="text-lg mb-4">
-          Nei dintorni si trovano i vicoletti del quartiere ebraico della Giudecca, con antiche sinagoghe e botteghe artigianali, oltre alla villa comunale, un rilassante giardino pubblico sul mare. Percorrendo una lunga arteria si possono ammirare spiagge incantevoli, ideali per passeggiate o giri in bicicletta.
+        È considerata uno dei gioielli architettonici della Puglia ed è inserita nella lista delle meraviglie italiane ;ed inoltre il "Castello Svevo" un imponente fortino voluto da Federico Il e considerato uno dei più importanti esempi di architettura Sveva in Italia. Nei dintorni del porto si snodano i vicoletti del quartiere ebraico della Giudecca, antiche sinagoghe e botteghe artigianali ,poco lontano si trova la villa comunale considerato un rilassante giardino pubblico sul mare.
         </p>
         <p className="text-lg">
-          Proseguendo, si arriva al monastero di Santa Maria di Colonna, un luogo ricco di storia che completa un itinerario perfetto per chi ama esplorare la bellezza della Puglia.
+        Percorrendo una lunga arteria dove è possibile passeggiare o a piedi o in bicicletta ammirando spiagge ,mare incantevole e tanti luoghi di ritrovo per cocktail e bar serali si arriva al monastero di Santa Maria di Colonna.
         </p>
       </motion.div>
 
