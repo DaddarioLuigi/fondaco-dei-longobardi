@@ -23,7 +23,7 @@ export default function Home() {
             Benvenuti al Fondaco dei Longobardi
           </motion.h1>
           <p className="text-lg mb-4">
-            Immerso nella suggestiva cornice del porto di Trani, il Fondaco dei Longobardi è un luogo dove ospitalità e storia si intrecciano. Situato in un elegante palazzo recentemente ristrutturato, offre un'esperienza unica nel cuore della "Perla dell'Adriatico".
+            La casa vacanza il "Fondaco dei Longobardi" è ubicata nel porto di Trani, considerato polo attrattivo per i turisti per la sua posizione geologica unica, un'insenatura naturale racchiusa tra il Molo di Santa Lucia a Ponente e il Molo di Sant'Antonio a Levante.
           </p>
           <Link href="/appartamento" className="inline-block bg-[#d8b74b] text-white px-6 py-2 rounded hover:bg-opacity-80 transition-colors">
             Scopri l'appartamento <ChevronRight className="inline-block ml-1" />
@@ -44,6 +44,27 @@ export default function Home() {
           />
         </motion.div>
       </div>
+
+
+      {/* Sezione aggiuntiva per il testo completo */}
+      <motion.div
+        className="mt-12 bg-white p-6 rounded-lg shadow-md"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <h2 className="text-3xl font-serif font-bold mb-4 text-brand-primary">Scopri il Porto di Trani</h2>
+        <p className="text-lg mb-4">
+          Il porto offre un pittoresco scenario con barche ancorate che producono un variopinto tripudio di colori, circondato da ristoranti e locali dove è possibile gustare un pasto con vista mare. La città, conosciuta come la "Perla dell'Adriatico", è famosa per la maestosa cattedrale romanica sul mare e per il "Castello Svevo", voluto da Federico II e considerato uno dei più importanti esempi di architettura sveva in Italia.
+        </p>
+        <p className="text-lg mb-4">
+          Nei dintorni si trovano i vicoletti del quartiere ebraico della Giudecca, con antiche sinagoghe e botteghe artigianali, oltre alla villa comunale, un rilassante giardino pubblico sul mare. Percorrendo una lunga arteria si possono ammirare spiagge incantevoli, ideali per passeggiate o giri in bicicletta.
+        </p>
+        <p className="text-lg">
+          Proseguendo, si arriva al monastero di Santa Maria di Colonna, un luogo ricco di storia che completa un itinerario perfetto per chi ama esplorare la bellezza della Puglia.
+        </p>
+      </motion.div>
+
       <motion.div
         className="mt-12"
         initial={{ opacity: 0, y: 20 }}
