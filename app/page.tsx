@@ -94,40 +94,7 @@ export default function Home() {
           ))}
         </div>
       </motion.div>
-      <motion.div
-        className="mt-12 bg-white p-6 rounded-lg shadow-md"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
-      >
-        <h2 className="text-3xl font-serif font-bold mb-4 text-brand-primary">Cosa dicono i nostri ospiti</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {[
-            { name: 'Marco R.', text: 'Un\'esperienza indimenticabile. La posizione è perfetta e l\'appartamento è arredato con gusto. Torneremo sicuramente!', image: '/images/guest-marco.jpg' },
-            { name: 'Giulia M.', text: 'Ci siamo sentiti come a casa. L\'attenzione ai dettagli e la cordialità dei proprietari hanno reso il nostro soggiorno speciale.', image: '/images/guest-giulia.jpg' },
-          ].map((review, index) => (
-            <div key={index} className="bg-brand-accent p-4 rounded-lg flex items-center">
-              <div className="relative w-16 h-16 mr-4 flex-shrink-0">
-                <Image
-                  src={review.image}
-                  alt={review.name}
-                  fill
-                  className="object-cover rounded-full"
-                />
-              </div>
-              <div>
-                <p className="mb-2 italic">"{review.text}"</p>
-                <p className="font-bold">{review.name}</p>
-                <div className="flex text-brand-secondary mt-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" />
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.div>
+
     </div>
   )
 }

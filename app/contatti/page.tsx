@@ -61,7 +61,7 @@ export default function Contatti() {
         >
           <h2 className="text-2xl font-serif font-semibold mb-4 text-brand-secondary">Dove siamo</h2>
           <p className="mb-4">
-            Arrivare al Fondaco dei Longobardi è semplice. Se venite in auto, ci troviamo a pochi minuti dall'uscita dell'autostrada A14...
+          Arrivare al Fondaco dei Longobardi è semplice. Se venite in auto, ci troviamo a pochi minuti dall'uscita dell'autostrada A14 e il parcheggio è facilmente accessibile nelle vicinanze del porto. La stazione ferroviaria di Trani dista circa 15 minuti a piedi, collegandoci comodamente con le principali città pugliesi. L’aeroporto di Bari Karol Wojtyla si trova a soli 40 minuti di auto, e offriamo un servizio di trasferimento su richiesta per garantirvi spostamenti senza alcuno stress!
           </p>
           <div className="space-y-4 mb-6">
             <div className="flex items-center">
