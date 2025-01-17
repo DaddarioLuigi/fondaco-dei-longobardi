@@ -163,7 +163,7 @@ export default function Contatti() {
           ))}
         </div>
         <div className="mt-6">
-          <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+          <LoadScript googleMapsApiKey="AIzaSyBXysI6GkMZDYN741YnEg2S2KbuUbja5SI">
             <GoogleMap
               mapContainerStyle={mapContainerStyle}
               center={center}
