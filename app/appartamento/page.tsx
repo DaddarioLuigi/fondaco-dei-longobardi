@@ -4,8 +4,6 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Wifi, Coffee, Tv, Wind, UtensilsCrossed, Bed } from 'lucide-react'
 import { useState, useEffect } from 'react'
-import fs from 'fs'
-import path from 'path'
 
 // Caratteristiche principali
 const features = [
@@ -41,15 +39,6 @@ Date.prototype.getWeek = function () {
   return Math.ceil(dayOfYear / 7)
 }
 
-// Funzione per caricare immagini dal server
-async function loadImages() {
-  const imagesDir = path.join(process.cwd(), 'public/images')
-  const files = fs.readdirSync(imagesDir)
-  return files
-    .filter((file) => file.endsWith('.jpg'))
-    .map((file) => ({ src: `/images/${file}`, alt: file.replace(/\.[^/.]+$/, '').replace(/_/g, ' ') }))
-}
-
 export default function Appartamento() {
   const [currentImage, setCurrentImage] = useState(0)
   const [galleryPage, setGalleryPage] = useState(0)
@@ -58,7 +47,8 @@ export default function Appartamento() {
 
   useEffect(() => {
     async function fetchImages() {
-      const allImages = await loadImages()
+      const response = await fetch('/api/images')
+      const allImages = await response.json()
       setImages(allImages)
       const newRandomImages = getRandomImages(allImages, 5)
       setRandomImages(newRandomImages)
