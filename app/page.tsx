@@ -38,6 +38,7 @@ export default function Home() {
           <video
             src="/videos/video.mp4"
             className="object-cover rounded-lg shadow-lg w-full h-full"
+            controls
             autoPlay
             muted
             loop
