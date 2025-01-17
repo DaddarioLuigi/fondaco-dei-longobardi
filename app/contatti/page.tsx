@@ -76,7 +76,7 @@ export default function Contatti() {
               <span>Via Statuti Marittimi, 24, 76125 Trani (BT)</span>
             </div>
           </div>
-          <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+          <LoadScript googleMapsApiKey="AIzaSyBXysI6GkMZDYN741YnEg2S2KbuUbja5SI">
             <GoogleMap
               mapContainerStyle={mapContainerStyle}
               center={center}
