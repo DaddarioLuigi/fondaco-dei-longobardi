@@ -11,9 +11,10 @@ const mapContainerStyle = {
 }
 
 const center = {
-  lat: 41.280775,
-  lng: 16.419223
+  lat: 41.278355,
+  lng: 16.419434
 }
+
 
 const places = [
   { name: 'Valle d’Itria', distance: '120km', lat: 40.748523, lng: 17.400737 },
