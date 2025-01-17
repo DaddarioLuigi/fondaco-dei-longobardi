@@ -111,7 +111,7 @@ export default function Appartamento() {
                 <Image src={image.src} alt={image.alt} fill className="rounded" />
               </div>
             ))}
-          </div> 
+          </div>
           <div className="flex justify-between mt-4">
             <button
               onClick={() => setGalleryPage((prev) => Math.max(prev - 1, 0))}
