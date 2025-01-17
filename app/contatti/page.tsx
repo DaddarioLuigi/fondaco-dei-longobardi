@@ -73,7 +73,7 @@ export default function Contatti() {
             </div>
             <div className="flex items-center">
               <MapPin className="text-brand-secondary mr-2" />
-              <span>Via del Porto, 12, 76125 Trani (BT)</span>
+              <span>Via Statuti Marittimi, 24, 76125 Trani (BT)</span>
             </div>
           </div>
           <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
