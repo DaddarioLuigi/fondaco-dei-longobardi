@@ -10,7 +10,7 @@ export default function Storia() {
     { year: 'IX secolo', event: 'Fondazione del gastaldato longobardo a Trani' },
     { year: 'XI secolo', event: 'Costruzione del Fondaco dei Longobardi' },
     { year: 'XIII secolo', event: 'Trani diventa un importante centro commerciale' },
-    { year: '2023', event: 'Restauro e apertura del B&B Fondaco dei Longobardi' },
+    { year: '2024', event: 'Restauro e apertura del B&B Fondaco dei Longobardi' },
   ]
 
   return (
