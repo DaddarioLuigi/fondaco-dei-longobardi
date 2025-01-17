@@ -5,6 +5,19 @@ import { motion } from 'framer-motion'
 import { Wifi, Coffee, Tv, Wind, UtensilsCrossed, Bed } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
+// Estensione di Date per calcolare la settimana corrente
+declare global {
+  interface Date {
+    getWeek(): number;
+  }
+}
+
+Date.prototype.getWeek = function (): number {
+  const firstDay = new Date(this.getFullYear(), 0, 1);
+  const dayOfYear = (this.getTime() - firstDay.getTime() + 86400000) / 86400000;
+  return Math.ceil(dayOfYear / 7);
+};
+
 // Caratteristiche principali
 const features = [
   { icon: Wifi, text: 'Wi-Fi ad alta velocità' },
@@ -13,62 +26,55 @@ const features = [
   { icon: Wind, text: 'Aria condizionata' },
   { icon: UtensilsCrossed, text: 'Cucina attrezzata' },
   { icon: Bed, text: 'Biancheria di alta qualità' },
-]
+];
 
 // Funzione per selezionare immagini casuali
 function getRandomImages(images, count, seed) {
-  const date = new Date()
-  const randomSeed = seed || date.getFullYear() * 100 + date.getWeek()
+  const date = new Date();
+  const randomSeed = seed || date.getFullYear() * 100 + date.getWeek();
   const randomGenerator = (s) => () => {
-    s = Math.sin(s) * 10000
-    return s - Math.floor(s)
-  }
-  const rng = randomGenerator(randomSeed)
+    s = Math.sin(s) * 10000;
+    return s - Math.floor(s);
+  };
+  const rng = randomGenerator(randomSeed);
 
   return images
     .map((image) => ({ image, sort: rng() }))
     .sort((a, b) => a.sort - b.sort)
     .slice(0, count)
-    .map(({ image }) => image)
-}
-
-// Estensione di Date per calcolare la settimana corrente
-Date.prototype.getWeek = function () {
-  const firstDay = new Date(this.getFullYear(), 0, 1)
-  const dayOfYear = (this - firstDay + 86400000) / 86400000
-  return Math.ceil(dayOfYear / 7)
+    .map(({ image }) => image);
 }
 
 export default function Appartamento() {
-  const [currentImage, setCurrentImage] = useState(0)
-  const [galleryPage, setGalleryPage] = useState(0)
-  const [images, setImages] = useState([])
-  const [randomImages, setRandomImages] = useState([])
+  const [currentImage, setCurrentImage] = useState(0);
+  const [galleryPage, setGalleryPage] = useState(0);
+  const [images, setImages] = useState([]);
+  const [randomImages, setRandomImages] = useState([]);
 
   useEffect(() => {
     async function fetchImages() {
-      const response = await fetch('/api/images')
-      const allImages = await response.json()
-      setImages(allImages)
-      const newRandomImages = getRandomImages(allImages, 5)
-      setRandomImages(newRandomImages)
+      const response = await fetch('/api/images');
+      const allImages = await response.json();
+      setImages(allImages);
+      const newRandomImages = getRandomImages(allImages, 5);
+      setRandomImages(newRandomImages);
     }
-    fetchImages()
-  }, [])
+    fetchImages();
+  }, []);
 
   const nextImage = () => {
-    setCurrentImage((prev) => (prev + 1) % randomImages.length)
-  }
+    setCurrentImage((prev) => (prev + 1) % randomImages.length);
+  };
 
   const prevImage = () => {
-    setCurrentImage((prev) => (prev - 1 + randomImages.length) % randomImages.length)
-  }
+    setCurrentImage((prev) => (prev - 1 + randomImages.length) % randomImages.length);
+  };
 
-  const imagesPerPage = 12
+  const imagesPerPage = 12;
   const paginatedImages = images.slice(
     galleryPage * imagesPerPage,
     (galleryPage + 1) * imagesPerPage
-  )
+  );
 
   return (
     <div className="w-full overflow-x-hidden">
@@ -130,5 +136,5 @@ export default function Appartamento() {
         </div>
       </motion.section>
     </div>
-  )
+  );
 }
