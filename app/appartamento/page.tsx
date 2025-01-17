@@ -4,6 +4,8 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Wifi, Coffee, Tv, Wind, UtensilsCrossed, Bed } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import fs from 'fs'
+import path from 'path'
 
 // Caratteristiche principali
 const features = [
@@ -39,24 +41,29 @@ Date.prototype.getWeek = function () {
   return Math.ceil(dayOfYear / 7)
 }
 
-// Immagini (placeholder per caricamento dinamico)
-const images = [
-  { src: '/images/B&B 2 -17.jpg', alt: 'Vista della camera da letto' },
-  { src: '/images/B&B fondaco di longobardi -066.jpg', alt: 'Bagno di lusso' },
-  { src: '/images/B&B fondaco di longobardi -036.jpg', alt: 'Vista esterna' },
-  { src: '/images/B&B fondaco di longobardi -033.jpg', alt: 'Dettaglio cucina' },
-  { src: '/images/B&B fondaco di longobardi -026.jpg', alt: 'Zona pranzo' },
-  // Aggiungere dinamicamente altre immagini dalla cartella "images"
-]
+// Funzione per caricare immagini dal server
+async function loadImages() {
+  const imagesDir = path.join(process.cwd(), 'public/images')
+  const files = fs.readdirSync(imagesDir)
+  return files
+    .filter((file) => file.endsWith('.jpg'))
+    .map((file) => ({ src: `/images/${file}`, alt: file.replace(/\.[^/.]+$/, '').replace(/_/g, ' ') }))
+}
 
 export default function Appartamento() {
   const [currentImage, setCurrentImage] = useState(0)
   const [galleryPage, setGalleryPage] = useState(0)
+  const [images, setImages] = useState([])
   const [randomImages, setRandomImages] = useState([])
 
   useEffect(() => {
-    const newRandomImages = getRandomImages(images, 5)
-    setRandomImages(newRandomImages)
+    async function fetchImages() {
+      const allImages = await loadImages()
+      setImages(allImages)
+      const newRandomImages = getRandomImages(allImages, 5)
+      setRandomImages(newRandomImages)
+    }
+    fetchImages()
   }, [])
 
   const nextImage = () => {
