@@ -2,10 +2,15 @@
 
 import { useState, useEffect } from 'react'
 
+interface ImageData {
+  src: string
+  alt: string
+}
+
 export default function Appartamento() {
-  const [images, setImages] = useState([])
+  const [images, setImages] = useState<ImageData[]>([])
   const [currentPage, setCurrentPage] = useState(1)
-  const [selectedImage, setSelectedImage] = useState(null)
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   const imagesPerPage = 12 // Numero di immagini per pagina
 
@@ -13,7 +18,7 @@ export default function Appartamento() {
   useEffect(() => {
     const fetchImages = async () => {
       const imageCount = 100 // Supponiamo che tu conosca il numero totale di immagini
-      const loadedImages = []
+      const loadedImages: ImageData[] = []
       for (let i = 1; i <= imageCount; i++) {
         loadedImages.push({
           src: `/images/image-${i}.jpg`,
