@@ -20,8 +20,9 @@ export default function Appartamento() {
       const imageCount = 100 // Supponiamo che tu conosca il numero totale di immagini
       const loadedImages: ImageData[] = []
       for (let i = 1; i <= imageCount; i++) {
+        const imageNumber = i.toString().padStart(3, '0') // Formatta il numero come 001, 002, ecc.
         loadedImages.push({
-          src: `/images/image-${i}.jpg`,
+          src: `/images/B&B fondaco di longobardi -${imageNumber}.jpg`,
           alt: `Immagine ${i}`,
         })
       }
