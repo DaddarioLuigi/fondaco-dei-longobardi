@@ -35,28 +35,10 @@ export default function Contatti() {
     setFormData(prevState => ({ ...prevState, [name]: value }))
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-
-    try {
-      const response = await fetch('https://formspree.io/f/xeooyarz', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert('Grazie per averci contattato! Ti risponderemo al più presto.');
-        setFormData({ nome: '', email: '', messaggio: '' }); // Resetta il form
-      } else {
-        alert('Si è verificato un errore. Riprova più tardi.');
-      }
-    } catch (error) {
-      console.error('Errore durante l'invio del modulo:', error);
-      alert('Si è verificato un errore. Controlla la tua connessione e riprova.');
-    }
+    console.log(formData)
+    alert('Grazie per averci contattato! Ti risponderemo al più presto.')
   }
 
   return (
