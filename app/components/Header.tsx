@@ -23,7 +23,7 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo.png"
+              src="/images/fondaco_logo.png"
               alt="Fondaco dei Longobardi"
               width={150}
               height={50}
