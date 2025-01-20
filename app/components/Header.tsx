@@ -25,9 +25,9 @@ const Header = () => {
             <Image
               src="/images/fondaco_logo.png"
               alt="Fondaco dei Longobardi"
-              width={150}
-              height={50}
-              className="h-12 w-auto"
+              width={100}
+              height={100}
+              className="w-auto"
             />
           </Link>
           <nav className="hidden md:block">
