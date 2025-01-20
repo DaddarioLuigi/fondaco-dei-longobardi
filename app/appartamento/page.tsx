@@ -22,6 +22,7 @@ export default function Appartamento() {
   const [images, setImages] = useState<ImageData[]>([])
   const [currentPage, setCurrentPage] = useState(1)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [currentSliderImage, setCurrentSliderImage] = useState(0)
 
   const imagesPerPage = 12 // Numero di immagini per pagina
 
@@ -59,6 +60,14 @@ export default function Appartamento() {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1)
     }
+  }
+
+  const nextSliderImage = () => {
+    setCurrentSliderImage((prev) => (prev + 1) % images.length)
+  }
+
+  const prevSliderImage = () => {
+    setCurrentSliderImage((prev) => (prev - 1 + images.length) % images.length)
   }
 
   return (
@@ -100,7 +109,40 @@ export default function Appartamento() {
         </div>
       </motion.section>
 
-      {/** SEZIONE 2 - DETTAGLI APPARTAMENTO */}
+      {/** SEZIONE 2 - SLIDER A TUTTO SCHERMO */}
+      <motion.section
+        className="relative w-screen h-screen flex justify-center items-center bg-gray-100"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="relative w-full h-full">
+          {images.length > 0 && (
+            <img
+              src={images[currentSliderImage].src}
+              alt={images[currentSliderImage].alt}
+              className="object-cover w-full h-full"
+            />
+          )}
+        </div>
+
+        <button
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-4 rounded-full shadow-md hover:bg-white transition-colors z-10"
+          onClick={prevSliderImage}
+          aria-label="Immagine precedente"
+        >
+          &#10094;
+        </button>
+        <button
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-4 rounded-full shadow-md hover:bg-white transition-colors z-10"
+          onClick={nextSliderImage}
+          aria-label="Immagine successiva"
+        >
+          &#10095;
+        </button>
+      </motion.section>
+
+      {/** SEZIONE 3 - DETTAGLI APPARTAMENTO */}
       <motion.section
         className="w-screen px-6 py-8 bg-white"
         initial={{ opacity: 0, y: 20 }}
@@ -121,7 +163,7 @@ export default function Appartamento() {
         </div>
       </motion.section>
 
-      {/** SEZIONE 3 - GALLERIA FOTOGRAFICA */}
+      {/** SEZIONE 4 - GALLERIA FOTOGRAFICA */}
       <motion.section
         className="w-screen px-6 py-8"
         initial={{ opacity: 0, y: 20 }}
