@@ -273,7 +273,10 @@ export default function Appartamento() {
         </button>
       </motion.section>
 
-      {/** SEZIONE 3 - DETTAGLI APPARTAMENTO */}
+    {/*
+        SEZIONE 3 - DETTAGLI APPARTAMENTO
+        (non fullscreen, ma puoi adattare se vuoi)
+      */}
       <motion.section
         className="w-screen px-6 py-8 bg-white"
         initial={{ opacity: 0, y: 20 }}
@@ -289,7 +292,14 @@ export default function Appartamento() {
             <li>Soggiorno con due letti per ospiti aggiuntivi</li>
             <li>Cucina completamente attrezzata con elettrodomestici moderni</li>
             <li>Bagno di lusso con doccia a pioggia e set di cortesia</li>
-            <li>Vista panoramica sul Fondaco Dei Longobardi</li>
+            <li>Vista panoramica sul Fondaco Dei Longobard</li>
+            <li>Colazione a domicilio (a pagamento) in collaborazione con "bar ai Portici"</li>
+            <li>Aperitivo a domicilio (a pagamento) in collaborazione con "bar ai Portici"</li>
+            <li>Servizio navetta da e per la stazione (a pagamento)</li>
+            <li>Servizio navetta da e per l'aeroporto (a pagamento)</li>
+            <li>Vino / Champagne (a pagamento)</li>
+            <li>Servizio pulizia giornaliera (a pagamento )</li>
+            <li>Cambio biancheria (letto - asciugamani) a richiesta (a pagamento)</li>
           </ul>
         </div>
       </motion.section>
