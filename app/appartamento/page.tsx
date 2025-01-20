@@ -292,11 +292,9 @@ export default function Appartamento() {
             <li>Soggiorno con due letti per ospiti aggiuntivi</li>
             <li>Cucina completamente attrezzata con elettrodomestici moderni</li>
             <li>Bagno di lusso con doccia a pioggia e set di cortesia</li>
-            <li>Vista panoramica sul Fondaco Dei Longobard</li>
             <li>Colazione a domicilio (a pagamento) in collaborazione con "bar ai Portici"</li>
             <li>Aperitivo a domicilio (a pagamento) in collaborazione con "bar ai Portici"</li>
             <li>Servizio navetta da e per la stazione (a pagamento)</li>
-            <li>Servizio navetta da e per l'aeroporto (a pagamento)</li>
             <li>Vino / Champagne (a pagamento)</li>
             <li>Servizio pulizia giornaliera (a pagamento )</li>
             <li>Cambio biancheria (letto - asciugamani) a richiesta (a pagamento)</li>
