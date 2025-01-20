@@ -137,6 +137,15 @@ export default function Contatti() {
               Invia messaggio
             </button>
           </form>
+          {/* Pulsante per la prenotazione su Airbnb */}
+          <button
+            type="button"
+            onClick={() => window.open('https://www.airbnb.it/rooms/1329885685291550096?viralityEntryPoint=1&s=76', '_blank')}
+            className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors flex items-center justify-center mt-6"
+          >
+            <Map className="mr-2" />
+            Prenota su Airbnb
+          </button>
         </motion.div>
       </div>
 
