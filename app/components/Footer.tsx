@@ -23,9 +23,8 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-serif font-bold mb-4">Seguici</h3>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-brand-primary transition-colors"><Facebook /></a>
-              <a href="#" className="hover:text-brand-primary transition-colors"><Instagram /></a>
-              <a href="#" className="hover:text-brand-primary transition-colors"><Twitter /></a>
+              <a href="https://www.facebook.com/share/18fMPXKbag/" className="hover:text-brand-primary transition-colors"><Facebook /></a>
+              <a href="https://www.instagram.com/fondacodeilongobardi?igsh=MTN3YTlqanpnNGV4dQ==" className="hover:text-brand-primary transition-colors"><Instagram /></a>
             </div>
           </div>
         </div>
