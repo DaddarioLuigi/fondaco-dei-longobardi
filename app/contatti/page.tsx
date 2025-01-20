@@ -15,7 +15,6 @@ const center = {
   lng: 16.419434
 }
 
-
 const places = [
   { name: 'Valle d’Itria', distance: '120km', lat: 40.748523, lng: 17.400737 },
   { name: 'Castel del Monte', distance: '32km', lat: 41.084036, lng: 16.269952 },
@@ -83,7 +82,13 @@ export default function Contatti() {
               center={center}
               zoom={15}
             >
-              <Marker position={center} />
+              <Marker 
+                position={center} 
+                onClick={() => {
+                  const url = `https://www.google.com/maps/dir/?api=1&destination=${center.lat},${center.lng}`;
+                  window.open(url, '_blank');
+                }} 
+              />
             </GoogleMap>
           </LoadScript>
         </motion.div>
@@ -180,7 +185,14 @@ export default function Contatti() {
               zoom={8}
             >
               {places.map((place, index) => (
-                <Marker key={index} position={{ lat: place.lat, lng: place.lng }} />
+                <Marker 
+                  key={index} 
+                  position={{ lat: place.lat, lng: place.lng }} 
+                  onClick={() => {
+                    const url = `https://www.google.com/maps/dir/?api=1&destination=${place.lat},${place.lng}`;
+                    window.open(url, '_blank');
+                  }} 
+                />
               ))}
             </GoogleMap>
           </LoadScript>
