@@ -1,11 +1,22 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
+import { Wifi, Coffee, Tv, Wind, UtensilsCrossed, Bed } from 'lucide-react'
 
 interface ImageData {
   src: string
   alt: string
 }
+
+const features = [
+  { icon: Wifi, text: 'Wi-Fi ad alta velocità' },
+  { icon: Coffee, text: 'Macchina del caffè' },
+  { icon: Tv, text: 'Smart TV' },
+  { icon: Wind, text: 'Aria condizionata' },
+  { icon: UtensilsCrossed, text: 'Cucina attrezzata' },
+  { icon: Bed, text: 'Biancheria di alta qualità' },
+]
 
 export default function Appartamento() {
   const [images, setImages] = useState<ImageData[]>([])
@@ -52,8 +63,71 @@ export default function Appartamento() {
 
   return (
     <div className="w-full overflow-x-hidden">
-      {/** SEZIONE GALLERIA FOTOGRAFICA */}
-      <section className="w-screen px-6 py-8">
+      {/** SEZIONE 1 - TESTI INTRODUTTIVI A TUTTO SCHERMO */}
+      <motion.section
+        className="relative w-screen min-h-screen flex justify-center items-center px-6 py-12 overflow-y-auto"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="max-w-4xl w-full text-left">
+          <motion.h1 
+            className="text-4xl font-serif font-bold mb-6 text-brand-primary"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Il nostro Appartamento
+          </motion.h1>
+
+          <motion.h2
+            className="text-2xl font-serif font-bold mb-4 text-brand-primary"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Il Fondaco dei Longobardi: eleganza e comfort
+          </motion.h2>
+
+          <motion.p
+            className="text-lg mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            Immerso nella suggestiva cornice del porto di Trani, il "Fondaco dei Longobardi" è una casa vacanza, recentemente ristrutturata, dove ospitalità e storia si intrecciano. Situata al primo piano di un palazzo storico recentemente ristrutturato, la struttura unisce il fascino antico al design moderno.
+          </motion.p>
+        </div>
+      </motion.section>
+
+      {/** SEZIONE 2 - DETTAGLI APPARTAMENTO */}
+      <motion.section
+        className="w-screen px-6 py-8 bg-white"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-serif font-semibold mb-4 text-brand-primary">
+            Dettagli dell'appartamento
+          </h2>
+          <ul className="list-disc list-inside space-y-2 text-left">
+            <li>Camera da letto con letto matrimoniale king-size</li>
+            <li>Soggiorno con due letti per ospiti aggiuntivi</li>
+            <li>Cucina completamente attrezzata con elettrodomestici moderni</li>
+            <li>Bagno di lusso con doccia a pioggia e set di cortesia</li>
+            <li>Vista panoramica sul Fondaco Dei Longobardi</li>
+          </ul>
+        </div>
+      </motion.section>
+
+      {/** SEZIONE 3 - GALLERIA FOTOGRAFICA */}
+      <motion.section
+        className="w-screen px-6 py-8"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-serif font-semibold mb-4 text-brand-primary">
             Galleria fotografica
@@ -116,7 +190,7 @@ export default function Appartamento() {
             </div>
           )}
         </div>
-      </section>
+      </motion.section>
     </div>
   )
 }
