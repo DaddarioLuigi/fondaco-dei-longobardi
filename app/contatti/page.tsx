@@ -35,12 +35,30 @@ export default function Contatti() {
     setFormData(prevState => ({ ...prevState, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log(formData)
-    alert('Grazie per averci contattato! Ti risponderemo al più presto.')
-  }
-
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+  
+    try {
+      const response = await fetch('https://www.luxdada.it/fondaco/email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+  
+      if (response.ok) {
+        alert('Grazie per averci contattato! Ti risponderemo al più presto.');
+        setFormData({ nome: '', email: '', messaggio: '' });
+      } else {
+        alert('Si è verificato un errore durante l\'invio del messaggio. Riprova più tardi.');
+      }
+    } catch (error) {
+      alert('Si è verificato un errore durante l\'invio del messaggio. Riprova più tardi.');
+      console.error(error);
+    }
+  };
+  
   return (
     <div className="container mx-auto px-4 py-8">
       <motion.h1 
