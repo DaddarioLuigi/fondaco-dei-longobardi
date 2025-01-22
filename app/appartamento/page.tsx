@@ -31,7 +31,13 @@ export default function Appartamento() {
     const fetchImages = async () => {
       try {
         const response = await fetch('/api/images')
+        if (!response.ok) {
+          throw new Error(`Errore API: ${response.status}`)
+        }
         const data = await response.json()
+        if (!Array.isArray(data)) {
+          throw new Error('La risposta non è un array')
+        }
         setImages(data)
       } catch (error) {
         console.error('Errore durante il fetch delle immagini:', error)
@@ -42,7 +48,12 @@ export default function Appartamento() {
 
   // Calcola le immagini da mostrare nella pagina corrente
   const startIndex = (currentPage - 1) * imagesPerPage
-  const currentImages = images.slice(startIndex, startIndex + imagesPerPage)
+  const currentImages = Array.isArray(images)
+  ? images.slice(startIndex, startIndex + imagesPerPage)
+  : []
+
+// Proteggi anche lo slider
+  const currentSliderImageData = images[currentSliderImage] || { src: '', alt: '' }
   const totalPages = Math.ceil(images.length / imagesPerPage)
 
   const nextPage = () => {
@@ -246,9 +257,8 @@ export default function Appartamento() {
         <div className="relative w-full h-full">
           {images.length > 0 && (
             <img
-              src={images[currentSliderImage].src}
-              alt={images[currentSliderImage].alt}
-              // Usa object-contain per evitare "zoom" dell'immagine
+              src={currentSliderImageData.src}
+              alt={currentSliderImageData.alt}
               className="object-contain w-full h-full"
             />
           )}

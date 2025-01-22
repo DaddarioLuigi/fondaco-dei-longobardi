@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
 import dotenv from 'dotenv';
 dotenv.config();
- 
+
 export async function GET(req) {
   try {
     // Leggi le credenziali dalla variabile d'ambiente
@@ -24,11 +24,16 @@ export async function GET(req) {
 
     const files = response.data.files || [];
 
+    // Logga i file ricevuti
+    console.log("Files fetched from Google Drive:", files);
+
     // Crea l'array di immagini
     const images = files.map((file) => ({
       src: `https://drive.google.com/uc?id=${file.id}`,
       alt: file.name.replace(/_/g, ' ').replace(/\.[^/.]+$/, ''),
     }));
+
+    console.log("Images array:", images);
 
     return new Response(JSON.stringify(images), { status: 200 });
   } catch (error) {
