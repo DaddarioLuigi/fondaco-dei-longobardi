@@ -1,4 +1,4 @@
-'use client'  // Se sei in un componente dell’App Router di Next.js 13
+'use client'
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
@@ -26,23 +26,28 @@ export default function Appartamento() {
 
   const imagesPerPage = 12 // Numero di immagini per pagina
 
-  // Carica tutte le immagini da /api/images
+  // Carica dinamicamente tutte le immagini dalla cartella "images"
   useEffect(() => {
     const fetchImages = async () => {
-      try {
-        const response = await fetch('/api/images')
-        const data = await response.json()
-        setImages(data)
-      } catch (error) {
-        console.error('Errore durante il fetch delle immagini:', error)
+      const imageCount = 100 // Supponiamo che tu conosca il numero totale di immagini
+      const loadedImages: ImageData[] = []
+      for (let i = 1; i <= imageCount; i++) {
+        const imageNumber = i.toString().padStart(3, '0') // Formatta il numero come 001, 002, ecc.
+        loadedImages.push({
+          src: `/images/B&B fondaco di longobardi -${imageNumber}.jpg`,
+          alt: `Immagine ${i}`,
+        })
       }
+      setImages(loadedImages)
     }
+
     fetchImages()
   }, [])
 
   // Calcola le immagini da mostrare nella pagina corrente
   const startIndex = (currentPage - 1) * imagesPerPage
   const currentImages = images.slice(startIndex, startIndex + imagesPerPage)
+
   const totalPages = Math.ceil(images.length / imagesPerPage)
 
   const nextPage = () => {
@@ -57,7 +62,6 @@ export default function Appartamento() {
     }
   }
 
-  // Slider
   const nextSliderImage = () => {
     setCurrentSliderImage((prev) => (prev + 1) % images.length)
   }
@@ -69,8 +73,8 @@ export default function Appartamento() {
   return (
     <div className="w-full overflow-x-hidden">
       {/*
-        SEZIONE 1 - TESTI INTRODUTTIVI
-        (stile a tua scelta)
+        SEZIONE 1 - TESTI INTRODUTTIVI A TUTTO SCHERMO
+        Testi centrati orizzontalmente ma con testo allineato a sinistra
       */}
       <motion.section
         className="relative w-screen min-h-screen flex justify-center items-center px-6 py-12 overflow-y-auto"
@@ -78,6 +82,7 @@ export default function Appartamento() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
+        {/* Wrapper interno per contenuti larghi max 1024px, testo a sinistra */}
         <div className="max-w-4xl w-full text-left">
           <motion.h1 
             className="text-4xl font-serif font-bold mb-6 text-brand-primary"
@@ -211,7 +216,6 @@ export default function Appartamento() {
             Scoprite il fascino e la cultura mediterranea passeggiando per le vie della città, gustando i sapori tipici della Puglia e ammirando il mare incantevole. Trani vi aspetta con i suoi paesaggi unici e la sua ricca tradizione.
           </motion.p>
 
-
           <motion.h2
             className="text-2xl font-serif font-semibold mb-4 text-brand-secondary"
             initial={{ opacity: 0 }}
@@ -248,8 +252,7 @@ export default function Appartamento() {
             <img
               src={images[currentSliderImage].src}
               alt={images[currentSliderImage].alt}
-              // Usa object-contain per evitare "zoom" dell'immagine
-              className="object-contain w-full h-full"
+              className="object-cover w-full h-full"
             />
           )}
         </div>
@@ -270,7 +273,10 @@ export default function Appartamento() {
         </button>
       </motion.section>
 
-      {/** SEZIONE 3 - DETTAGLI APPARTAMENTO */}
+    {/*
+        SEZIONE 3 - DETTAGLI APPARTAMENTO
+        (non fullscreen, ma puoi adattare se vuoi)
+      */}
       <motion.section
         className="w-screen px-6 py-8 bg-white"
         initial={{ opacity: 0, y: 20 }}
