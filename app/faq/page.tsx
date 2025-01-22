@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "Quali servizi sono inclusi nel prezzo?",
-    answer: "Il prezzo del soggiorno al “Fondaco dei Longobardi” include aria condizionata, Wi-Fi gratuito, smart TV, bagno privato con set di cortesia, cucina completamente attrezzata, biancheria di alta qualità e accesso a una terrazza arredata; servizi extra come colazione, aperitivo, navetta, pulizie giornaliere e cambio biancheria sono disponibili a pagamento."
+    answer: "Il prezzo del soggiorno al “Fondaco dei Longobardi” include aria condizionata, Wi-Fi gratuito, smart TV con Netflix, Prime Video e Disney+ inclusi, bagno privato con set di cortesia, cucina completamente attrezzata, biancheria di alta qualità e accesso a una terrazza arredata; servizi extra come colazione, aperitivo, navetta, pulizie giornaliere e cambio biancheria sono disponibili a pagamento."
   },
   {
     question: "Qual è la politica di cancellazione?",

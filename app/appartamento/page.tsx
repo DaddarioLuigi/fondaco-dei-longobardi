@@ -12,7 +12,7 @@ interface ImageData {
 const features = [
   { icon: Wifi, text: 'Wi-Fi ad alta velocità' },
   { icon: Coffee, text: 'Macchina del caffè' },
-  { icon: Tv, text: 'Smart TV' },
+  { icon: Tv, text: 'Smart TV con Netflix, Prime Video e Disney+ inclusi' },
   { icon: Wind, text: 'Aria condizionata' },
   { icon: UtensilsCrossed, text: 'Cucina attrezzata' },
   { icon: Bed, text: 'Biancheria di alta qualità' },
