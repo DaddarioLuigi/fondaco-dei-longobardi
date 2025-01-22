@@ -75,7 +75,7 @@ export default function Home() {
         <h2 className="text-3xl font-serif font-bold mb-4 text-brand-primary">Perché scegliere il Fondaco dei Longobardi</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { title: 'Posizione Unica', description: 'Nel cuore di Trani, a pochi passi dal mare e dai principali monumenti.', image: '/images/B&B fondaco di longobardi -001.jpg' },
+            { title: 'Posizione Unica', description: 'Nel cuore di Trani, a pochi passi dal mare e dai principali monumenti.', image: '/images/B&B 2 -01.jpg' },
             { title: 'Storia e Comfort', description: 'Un perfetto connubio tra l\'antico fascino e i moderni comfort.', image: '/images/B&B fondaco di longobardi -044.jpg' },
             { title: 'Ospitalità Pugliese', description: 'Vivete l\'autentica accoglienza della Puglia in un ambiente raffinato.', image: '/images/B&B fondaco di longobardi -133.jpg' },
           ].map((feature, index) => (
