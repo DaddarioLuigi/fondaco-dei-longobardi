@@ -2,7 +2,7 @@ import { google } from 'googleapis';
 import dotenv from 'dotenv';
 dotenv.config();
 
-export default async function handler(req, res) {
+export async function GET(req) {
   try {
     // Leggi le credenziali dalla variabile d'ambiente
     const credentials = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
@@ -30,9 +30,12 @@ export default async function handler(req, res) {
       alt: file.name.replace(/_/g, ' ').replace(/\.[^/.]+$/, ''),
     }));
 
-    res.status(200).json(images);
+    return new Response(JSON.stringify(images), { status: 200 });
   } catch (error) {
     console.error('Errore nell’accesso a Google Drive:', error);
-    res.status(500).json({ error: 'Errore nell’accesso a Google Drive' });
+    return new Response(
+      JSON.stringify({ error: 'Errore nell’accesso a Google Drive' }),
+      { status: 500 }
+    );
   }
 }
