@@ -8,7 +8,7 @@ export async function GET() {
   // Percorso assoluto alla cartella `public/images`
   const imagesDir = path.join(process.cwd(), 'public', 'images')
   
-  // Leggi tutti i file nella cartella `images`
+  // Leggi tutti i file nella cartella ` images`
   const files = fs.readdirSync(imagesDir)
 
   // Filtra .jpg/.jpeg e crea l'array di immagini
