@@ -1,55 +1,24 @@
-import { google } from 'googleapis';
-import dotenv from 'dotenv';
+// app/api/images/route.js
 
-dotenv.config();
+import fs from 'fs'
+import path from 'path'
+import { NextResponse } from 'next/server'
 
-export async function GET(req) {
-  try {
-    console.log("Avvio richiesta API Google Drive");
+export async function GET() {
+  // Percorso assoluto alla cartella `public/images`
+  const imagesDir = path.join(process.cwd(), 'public', 'images')
+  
+  // Leggi tutti i file nella cartella `images`
+  const files = fs.readdirSync(imagesDir)
 
-    // Verifica che la variabile d'ambiente esista
-    if (!process.env.GOOGLE_APPLICATION_CREDENTIALS) {
-      console.error("Variabile GOOGLE_APPLICATION_CREDENTIALS non trovata");
-      return new Response(
-        JSON.stringify({ error: 'Credenziali non configurate' }),
-        { status: 500 }
-      );
-    }
+  // Filtra .jpg/.jpeg e crea l'array di immagini
+  const images = files
+    .filter((file) => file.endsWith('.jpg') || file.endsWith('.jpeg'))
+    .map((file) => ({
+      src: `/images/${file}`,
+      alt: file.replace(/\.[^/.]+$/, '').replace(/_/g, ' '),
+    }))
 
-    const credentials = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS);
-
-    // Autenticazione Google Drive
-    const auth = new google.auth.GoogleAuth({
-      credentials,
-      scopes: ['https://www.googleapis.com/auth/drive.readonly'],
-    });
-
-    const drive = google.drive({ version: 'v3', auth });
-    console.log("Autenticazione riuscita");
-
-    const folderId = '1uw5D6pQ8LM0decdYMxMjh-ImaccrF89f'; // Assicurati che sia corretto
-    const response = await drive.files.list({
-      q: `'${folderId}' in parents and mimeType contains 'image/'`,
-      fields: 'files(id, name)',
-    });
-
-    console.log("Risposta Google Drive:", response.data.files);
-
-    const files = response.data.files || [];
-
-    const images = files.map((file) => ({
-      src: `https://drive.google.com/uc?id=${file.id}`,
-      alt: file.name.replace(/_/g, ' ').replace(/\.[^/.]+$/, ''),
-    }));
-
-    console.log("Immagini elaborate:", images);
-
-    return new Response(JSON.stringify(images), { status: 200 });
-  } catch (error) {
-    console.error("Errore durante l'accesso a Google Drive:", error);
-    return new Response(
-      JSON.stringify({ error: 'Errore durante l’accesso a Google Drive', details: error.message }),
-      { status: 500 }
-    );
-  }
-}
+  // Restituisce il JSON con NextResponse
+  return NextResponse.json(images)
+} 

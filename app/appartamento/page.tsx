@@ -48,12 +48,7 @@ export default function Appartamento() {
 
   // Calcola le immagini da mostrare nella pagina corrente
   const startIndex = (currentPage - 1) * imagesPerPage
-  const currentImages = Array.isArray(images)
-  ? images.slice(startIndex, startIndex + imagesPerPage)
-  : []
-
-// Proteggi anche lo slider
-  const currentSliderImageData = images[currentSliderImage] || { src: '', alt: '' }
+  const currentImages = images.slice(startIndex, startIndex + imagesPerPage)
   const totalPages = Math.ceil(images.length / imagesPerPage)
 
   const nextPage = () => {
@@ -257,8 +252,9 @@ export default function Appartamento() {
         <div className="relative w-full h-full">
           {images.length > 0 && (
             <img
-              src={currentSliderImageData.src}
-              alt={currentSliderImageData.alt}
+              src={images[currentSliderImage].src}
+              alt={images[currentSliderImage].alt}
+              // Usa object-contain per evitare "zoom" dell'immagine
               className="object-contain w-full h-full"
             />
           )}
