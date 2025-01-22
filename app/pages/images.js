@@ -17,7 +17,7 @@ export default function handler(req, res) {
       // `alt` -> nome del file (senza estensione), eventuale sostituzione di `_` con spazio
       alt: file.replace(/\.[^/.]+$/, '').replace(/_/g, ' '),
     }))
-
+ 
   // Ritorna l'array JSON
   res.status(200).json(images)
 }
