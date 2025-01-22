@@ -10,7 +10,7 @@ export default function handler(req, res) {
 
   // Filtra solo i .jpg e crea l'array di immagini
   const images = files
-    .filter((file) => file.endsWith('.jpeg'))
+    .filter((file) => file.endsWith('.jpg') || file.endsWith('.jpeg'))
     .map((file) => ({
       // `src` -> percorso per visualizzare l'immagine
       src: `/images/${file}`,
