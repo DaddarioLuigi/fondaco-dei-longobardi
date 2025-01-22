@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     const drive = google.drive({ version: 'v3', auth });
 
     // Ottieni i file dalla cartella specifica su Google Drive
-    const folderId = 'TUO_FOLDER_ID';
+    const folderId = '1uw5D6pQ8LM0decdYMxMjh-ImaccrF89f';
     const response = await drive.files.list({
       q: `'${folderId}' in parents and mimeType contains 'image/'`,
       fields: 'files(id, name)',
