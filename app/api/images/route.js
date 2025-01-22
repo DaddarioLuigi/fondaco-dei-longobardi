@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
 import dotenv from 'dotenv';
 dotenv.config();
-
+ 
 export async function GET(req) {
   try {
     // Leggi le credenziali dalla variabile d'ambiente
