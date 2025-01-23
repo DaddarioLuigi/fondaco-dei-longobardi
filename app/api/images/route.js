@@ -17,7 +17,7 @@ export async function GET() {
     .map((file) => ({
       src: `/gallery_images/${file}`,
       alt: file.replace(/\.[^/.]+$/, '').replace(/_/g, ' '),
-    }))
+    })) 
 
   // Restituisce il JSON con NextResponse
   return NextResponse.json(images)
