@@ -41,6 +41,7 @@ export default function Appartamento() {
         // Ordina le immagini in ordine alfabetico in base al nome del file
         const sortedData = data.sort((a, b) => a.alt.localeCompare(b.alt));
         setImages(sortedData);
+        console.log('Immagini caricate e ordinate:', sortedData);
       } catch (error) {
         console.error('Errore durante il fetch delle immagini:', error);
       }
