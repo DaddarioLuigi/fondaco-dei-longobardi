@@ -30,21 +30,23 @@ export default function Appartamento() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch('/api/images')
+        const response = await fetch('/api/images');
         if (!response.ok) {
-          throw new Error(`Errore API: ${response.status}`)
+          throw new Error(`Errore API: ${response.status}`);
         }
-        const data = await response.json()
+        const data = await response.json();
         if (!Array.isArray(data)) {
-          throw new Error('La risposta non è un array')
+          throw new Error('La risposta non è un array');
         }
-        setImages(data)
+        // Ordina le immagini in ordine alfabetico in base al nome del file
+        const sortedData = data.sort((a, b) => a.alt.localeCompare(b.alt));
+        setImages(sortedData);
       } catch (error) {
-        console.error('Errore durante il fetch delle immagini:', error)
+        console.error('Errore durante il fetch delle immagini:', error);
       }
-    }
-    fetchImages()
-  }, [])
+    };
+    fetchImages();
+  }, []);
 
   // Calcola le immagini da mostrare nella pagina corrente
   const startIndex = (currentPage - 1) * imagesPerPage
