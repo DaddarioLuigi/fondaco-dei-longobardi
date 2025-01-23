@@ -20,6 +20,9 @@ export async function GET() {
       alt: file.replace(/\.[^/.]+$/, '').replace(/_/g, ' '),
     }));
 
+  // Stampa l'array ordinato nella console
+  console.log('Array di immagini ordinato:', images);
+
   // Restituisce il JSON con NextResponse
   return NextResponse.json(images);
 }
