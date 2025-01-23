@@ -21,7 +21,7 @@ export async function GET() {
     }));
 
   // Stampa l'array ordinato nella console
-  console.log('Array di immagini ordinato:', images);
+  console.log('Array di immagini ordinato:', JSON.stringify(images, null, 2));
 
   // Restituisce il JSON con NextResponse
   return NextResponse.json(images);
