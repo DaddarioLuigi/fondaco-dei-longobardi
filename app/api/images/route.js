@@ -1,30 +1,28 @@
-useEffect(() => {
-  const fetchImages = async () => {
-    try {
-      const response = await fetch('/api/images');
-      if (!response.ok) {
-        throw new Error(`Errore API: ${response.status}`);
-      }
-      const data = await response.json();
-      if (!Array.isArray(data)) {
-        throw new Error('La risposta non è un array');
-      }
+// app/api/images/route.js
 
-      // Ordina le immagini considerando i numeri nei nomi dei file
-      const sortedData = data.sort((a, b) => {
-        const nameA = a.alt.match(/\d+/g)?.map(Number) || [0]; // Estrai numeri da 'alt'
-        const nameB = b.alt.match(/\d+/g)?.map(Number) || [0];
-        return nameA[0] - nameB[0];
-      });
+import fs from 'fs';
+import path from 'path';
+import { NextResponse } from 'next/server';
 
-      // Imposta lo stato delle immagini
-      setImages(sortedData);
+export async function GET() {
+  // Percorso assoluto alla cartella `public/gallery_images`
+  const imagesDir = path.join(process.cwd(), 'public', 'gallery_images');
 
-      // Stampa sul frontend l'array delle immagini ordinate
-      console.log('Immagini caricate e ordinate:', sortedData);
-    } catch (error) {
-      console.error('Errore durante il fetch delle immagini:', error);
-    }
-  };
-  fetchImages();
-}, []);
+  // Leggi tutti i file nella cartella `gallery_images`
+  const files = fs.readdirSync(imagesDir);
+
+  // Filtra .jpg/.jpeg e crea l'array di immagini ordinato alfabeticamente
+  const images = files
+    .filter((file) => file.endsWith('.jpg') || file.endsWith('.jpeg'))
+    .sort((a, b) => a.localeCompare(b)) // Ordina alfabeticamente
+    .map((file) => ({
+      src: `/gallery_images/${file}`,
+      alt: file.replace(/\.[^/.]+$/, '').replace(/_/g, ' '),
+    }));
+
+  // Stampa l'array ordinato nella console
+  console.log('Array di immagini ordinato:', JSON.stringify(images, null, 2));
+
+  // Restituisce il JSON con NextResponse
+  return NextResponse.json(images);
+}
