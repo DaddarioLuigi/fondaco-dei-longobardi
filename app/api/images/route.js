@@ -6,7 +6,7 @@ import { NextResponse } from 'next/server'
 
 export async function GET() {
   // Percorso assoluto alla cartella `public/images`
-  const imagesDir = path.join(process.cwd(), 'public', 'images')
+  const imagesDir = path.join(process.cwd(), 'public', 'gallery_images')
   
   // Leggi tutti i file nella cartella ` images`
   const files = fs.readdirSync(imagesDir)
@@ -15,7 +15,7 @@ export async function GET() {
   const images = files
     .filter((file) => file.endsWith('.jpg') || file.endsWith('.jpeg'))
     .map((file) => ({
-      src: `/images/${file}`,
+      src: `/gallery_images/${file}`,
       alt: file.replace(/\.[^/.]+$/, '').replace(/_/g, ' '),
     }))
 
